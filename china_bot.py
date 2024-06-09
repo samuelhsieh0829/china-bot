@@ -81,7 +81,6 @@ async def on_message(message: discord.Message):
                         #紀錄有藐視的訊息
                         with open("bad_message_id.txt", 'r') as f:
                                 d:list = ast.literal_eval(f.read())
-                        print(d)
                         if len(d) < bad_message_id_count:
                                 d.append(int(message.id))
                                 print(d)
@@ -247,7 +246,7 @@ async def switch(ctx:discord.Interaction):
                 game = discord.Game("睡覺")
                 await bot.change_presence(activity=game)
                 running = False
-                await ctx.response.send_message("該去晉見謝主席ㄌ :dog:")
+                await ctx.response.send_message(f"該去晉見{owner_name}ㄌ :dog:")
         else: #停止運作 -> 啟動
                 game = discord.Game("言論審查")
                 await bot.change_presence(activity=game)
